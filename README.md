@@ -1,6 +1,6 @@
-my_codes
+Random Codes
 ========
 
-Faculty Projects
-Competitive Programming Problems Solutions
-Other Faculty Codes
+Faculty Projects,
+,Competitive Programming Problems Solutions
+& Other Faculty Codes
