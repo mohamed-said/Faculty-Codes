@@ -1,0 +1,75 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <set>
+
+using namespace std;
+
+#define sz(x) (int)(x).size()
+
+class MafiaGame {
+public:
+
+	bool oneMax(vector<double> &vec) {
+		double max = *max_element(vec.begin(), vec.end());
+		int times = 0;
+		for (int i = 0; i < sz(vec); i++) {
+			if (vec[i] == max)
+				times++;
+		}
+		if (times > 1)
+			return false;
+		return true;
+	}
+
+	void exclude(vector<double> &vec) {
+		double max = *max_element(vec.begin(), vec.end());
+		for (int i = 0; i < sz(vec); i++)
+			if (vec[i] != max)
+				vec[i] = -1;
+	}
+
+	int getMinIndex(vector<double> &vec) {
+		int min = 700;
+		int idx = 0;
+		for (int i = 0; i < sz(vec); i++)
+			if (vec[i] < min && vec[i] != -1) {
+				min = vec[i];
+				idx = i;
+			}
+		return idx;
+
+	}
+	double probabilityToLose(int N, vector<int> decisions) {
+
+		vector<double> probs(N, 0.0);
+		vector<int> vulns;
+		for (int i = 0; i < sz(decisions); i++) {
+			vulns.push_back(decisions[i]);
+		}
+
+		int other = N - sz(decisions);
+
+		int hope = 0;
+		while(hope < 500) {
+			hope++;
+			// definite opinions voting
+			for (int i = 0; i < sz(vulns); i++) {
+				if (probs[vulns[i]] != -1)
+					probs[i]++;
+			}
+
+			// others voting
+			for (int i = 0; i < other; i++) {
+				int min = getMinIndex(probs);
+				probs[min]++;
+			}
+
+			if (oneMax(probs))
+				return *max_element(probs.begin(), probs.end()) / 3;
+
+			exclude(probs);
+		}
+		return 0.0;
+	} // end of function
+};

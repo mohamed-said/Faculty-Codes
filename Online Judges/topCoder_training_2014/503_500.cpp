@@ -1,0 +1,25 @@
+#include <iostream>
+#include <vector>
+#include <set>
+#include <cmath>
+#include <algorithm>
+
+#define sz(x) (int)x.size()
+#define all(x) x.begin(),x.end()
+
+//fucking greedy
+
+using namespace std;
+
+class ToastXToast {
+public:
+	int bake(vector <int> under, vector <int> over) {
+		sort(all(under));
+		sort(all(over));
+		if (under[0] > over[0]/* || under[sz(under) - 1] > over[sz(over) - 1]*/)
+			return -1;
+		if (under[sz(under) - 1] < over[0])
+			return 1;
+		return 2;
+	}
+};

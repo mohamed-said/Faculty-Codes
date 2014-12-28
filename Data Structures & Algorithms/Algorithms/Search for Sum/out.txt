@@ -1,0 +1,11 @@
+Done Reading 1000 numbers
+N^2 Solution Results
+NO ===> 2193980185
+NO ===> 21728033
+NO ===> 459550302
+
+
+DONE .. Now the N log N Solution
+NO ===> 2193980185
+NO ===> 21728033
+NO ===> 459550302
