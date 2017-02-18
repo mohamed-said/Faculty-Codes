@@ -1,6 +1,5 @@
-Random Codes
-========
+Faculty Codes
+=============
 
-Faculty Projects,
-,Competitive Programming Problems Solutions
-& Other Faculty Codes
+- Faculty Assignments and Code Practice.
+- Competitive Programming Problems Solutions
